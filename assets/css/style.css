@@ -1,0 +1,15 @@
+.top-header {
+  background-color: #232f3e;
+  padding: 12px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.top-header__menu-icon {
+  margin-top: 3px;
+}
+
+.top-header__cart-icon {
+  margin-left: auto;
+}
+
