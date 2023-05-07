@@ -23,23 +23,22 @@ const handleSetComment = () => {
   const commentContent = document.createElement('div');
   commentContent.classList.add('comment-content');
 
+  // create p for anonymous user name, and append it to div text output
   const newUserName = document.createElement('p');
   newUserName.classList.add('name');
   newUserName.textContent = 'anonymous';
+  commentContent.appendChild(newUserName);
 
+  // create p for sibling of preveouse tag p, they has same parrent div text output
   const commentText = document.createElement('p');
   commentText.textContent = commentsInput.value;
-
-  commentContent.appendChild(newUserName);
   commentContent.appendChild(commentText);
-
-  //   commentEl.appendChild(commentContent);
   commentEl.appendChild(commentContent);
 
-  // const commentText = document.createTextNode(commentsInput.value);
-
+  // append created component to markup
   commentsFace.appendChild(commentEl);
 
+  // clear textarea
   commentsInput.value = '';
 };
 
