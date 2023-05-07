@@ -1,20 +1,22 @@
-const answerButtons = document.querySelectorAll('.survey_button');
-const LS_KEY = 'answers';
+const answerButtons = document.querySelectorAll(".survey_button");
+const modalButton = document.getElementById("p_modal_button3");
+
+const LS_KEY = "answers";
+
+const handleAnswers = () => {
+  const answer = button.textContent.trim();
+  const questionId = button.parentNode.getAttribute("id");
+  const answers = JSON.parse(localStorage.getItem(LS_KEY)) || {};
+
+  answers[questionId] = answer;
+  localStorage.setItem(LS_KEY, JSON.stringify(answers));
+};
 
 answerButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const answer = button.textContent.trim();
-    const questionId = button.parentNode.getAttribute('id');
-    const answers = JSON.parse(localStorage.getItem(LS_KEY)) || {};
-
-    answers[questionId] = answer;
-    localStorage.setItem(LS_KEY, JSON.stringify(answers));
-  });
+  button.addEventListener("click", handleAnswers);
 });
 
-const modalButton = document.getElementById('p_modal_button3');
-
-modalButton.addEventListener('click', (event) => {
+modalButton.addEventListener("click", (event) => {
   event.preventDefault();
 
   const userAnswers = JSON.parse(localStorage.getItem(LS_KEY));
